@@ -1,0 +1,140 @@
+.question-box {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    background: linear-gradient(to bottom right, #f0f9f0, #e6f3ff);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.question-header {
+    padding: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.title-section h2 {
+    margin: 0;
+    color: #2f855a;
+    font-size: 1.5rem;
+}
+
+.leaf-icon, .cloud-icon {
+    font-size: 1.5rem;
+}
+
+.question-content {
+    padding: 24px;
+}
+
+.question-container {
+    background: white;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.question-text {
+    margin: 0 0 20px 0;
+    color: #2d3748;
+    font-size: 1.125rem;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.option-button {
+    width: 100%;
+    padding: 16px;
+    text-align: left;
+    background: #f7fafc;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.option-button:hover {
+    background: #edf2f7;
+}
+
+.option-button.selected {
+    background: #e6ffed;
+    border-color: #48bb78;
+}
+
+.option-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.option-marker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: #e2e8f0;
+    border-radius: 50%;
+    font-size: 0.875rem;
+}
+
+.option-marker.selected {
+    background: #48bb78;
+    color: white;
+}
+
+.question-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    background: rgba(255, 255, 255, 0.5);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.question-progress {
+    color: #4a5568;
+    font-size: 0.875rem;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.next-button {
+    padding: 8px 16px;
+    background: #48bb78;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: background 0.2s ease;
+}
+
+.next-button:hover:not(.disabled) {
+    background: #38a169;
+}
+
+.next-button.disabled {
+    background: #a0aec0;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
