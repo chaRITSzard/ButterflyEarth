@@ -37,23 +37,23 @@ const UI = () => {
 
     return (
         <div style={{
-            background: 'linear-gradient(to bottom,#6C809A, #6279B8, #001021)', 
-            color: ('#243E36', '#1B2D2A', '#F7D6E0'), 
-            minHeight: '100vh', 
+            background: 'linear-gradient(to bottom,#6C809A, #6279B8, #001021)',
+            color: ('#243E36', '#1B2D2A', '#F7D6E0'),
+            minHeight: '100vh',
             fontFamily: '"Blade Runner", sans-serif',
             margin: 0,
             padding: 0,
             boxSizing: 'border-box',
             overflowX: 'hidden', /* Prevents horizontal overflow */
-            width: '100%', 
+            width: '100%',
             position: 'relative',
         }}>
             <header style={{
-                padding: '2rem', 
-                textAlign: 'center', 
-                position: 'sticky', 
-                top: 0, 
-                backdropFilter: 'blur(10px)', 
+                padding: '2rem',
+                textAlign: 'center',
+                position: 'sticky',
+                top: 0,
+                backdropFilter: 'blur(10px)',
                 zIndex: 10,
                 width: '100%', // Full width
                 margin: 0,
@@ -71,11 +71,11 @@ const UI = () => {
                     padding: 0,
                     width: '100%', // Full width
                 }}>
-                    <video 
-                        autoPlay 
-                        loop 
-                        muted 
-                        playsInline 
+                    <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
                         style={{
                             position: 'absolute',
                             top: 0,
@@ -84,11 +84,11 @@ const UI = () => {
                             height: '100%',
                             objectFit: 'cover',
                             zIndex: 1,
-                            border: '10px solid #e94560', 
-                            boxSizing: 'border-box', 
+                            border: '10px solid #e94560',
+                            boxSizing: 'border-box',
                         }}
                     >
-                        <source src="/web.mp4" type="video/mp4" />
+                        <source src="/assets/web.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
 
@@ -113,11 +113,11 @@ const UI = () => {
                 </section>
 
                 <p style={{
-                    fontSize: '3rem', 
-                    maxWidth: '600px', 
-                    margin: '0 auto', 
-                    fontFamily: 'sans-serif', 
-                    fontStyle: 'italic', 
+                    fontSize: '3rem',
+                    maxWidth: '600px',
+                    margin: '0 auto',
+                    fontFamily: 'sans-serif',
+                    fontStyle: 'italic',
                     padding: '2rem',
                     textAlign: 'center'
                 }}>
@@ -125,10 +125,10 @@ const UI = () => {
                 </p>
 
                 <section style={{
-                    padding: '4rem 2rem', 
-                    display: 'flex', 
-                    justifyContent: 'space-around', 
-                    alignItems: 'center', 
+                    padding: '4rem 2rem',
+                    display: 'flex',
+                    justifyContent: 'space-around',
+                    alignItems: 'center',
                     flexWrap: 'wrap',
                     width: '100%', // Full width
                     boxSizing: 'border-box', // Ensure padding/margins are calculated correctly
@@ -158,10 +158,10 @@ const UI = () => {
                 </section>
 
                 <section style={{
-                    height: '100vh', 
-                    display: 'flex', 
-                    justifyContent: 'center', 
-                    alignItems: 'center', 
+                    height: '100vh',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
                     position: 'relative',
                     padding: '1rem',
                     margin: 0,
@@ -169,39 +169,39 @@ const UI = () => {
                     boxSizing: 'border-box', // No white spaces
                 }}>
                     {/* Video Background */}
-                    <div style={{ 
-                        position: 'relative', 
-                        width: '80%', 
-                        height: '50vh', 
-                        border: '5px solid #e94560', 
-                        boxSizing: 'border-box', 
-                        overflow: 'hidden', 
+                    <div style={{
+                        position: 'relative',
+                        width: '80%',
+                        height: '50vh',
+                        border: '5px solid #e94560',
+                        boxSizing: 'border-box',
+                        overflow: 'hidden',
                         zIndex: 0,
                         maxWidth: '800px' // Limits max width on larger screens
                     }}>
-                        <video 
-                            autoPlay 
-                            loop 
-                            muted 
-                            playsInline 
+                        <video
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
                             style={{
                                 width: '100%',
                                 height: '100%',
                                 objectFit: 'cover',
                             }}
                         >
-                            <source src="/footer.mp4" type="video/mp4" />
+                            <source src="/assets/footer.mp4" type="video/mp4" />
                             Your browser does not support the video tag.
                         </video>
                     </div>
 
                     {/* Overlapping Content */}
-                    <div style={{ 
-                        position: 'absolute', 
-                        top: '50%', 
-                        left: '50%', 
-                        transform: 'translate(-50%, -50%)', 
-                        textAlign: 'center', 
+                    <div style={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        textAlign: 'center',
                         zIndex: 1,
                         maxWidth: '90%', // Ensure text doesn't overflow on small screens
                         padding: '1rem',
