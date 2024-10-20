@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import '../styles/game.css';
+
 
 const topics = [
   { name: "The Deforestation Dilemma", image: "/Buttons/DF.jpeg" },
