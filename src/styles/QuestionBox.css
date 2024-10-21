@@ -138,3 +138,51 @@
     cursor: not-allowed;
     opacity: 0.7;
 }
+.option-button.correct {
+    background-color: #d1fae5;
+    border-color: #34d399;
+}
+
+.option-button.incorrect {
+    background-color: #fee2e2;
+    border-color: #f87171;
+}
+
+.option-button:disabled {
+    cursor: default;
+    opacity: 0.7;
+}
+@keyframes fall {
+    0% {
+        transform: translateY(-100vh);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+.animate-fall {
+    animation: fall linear forwards;
+}
+
+@keyframes confetti {
+    0% {
+        transform: translateY(-10px) rotateZ(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotateZ(720deg);
+    }
+}
+
+.animate-confetti {
+    animation: confetti linear forwards;
+}
+
+.raindrop {
+    font-size: 24px;
+}
+
+.confetti {
+    border-radius: 50%;
+    transform-origin: center;
+}
