@@ -18,14 +18,14 @@ const QuizPage1 = () => {
     return (
         <div className="h-screen relative overflow-hidden bg-gray-900">
             {/* Video container at the top */}
-            <div className="w-full max-w-[800px] mx-auto pt-4">
+            <div className="w-full mx-auto pt-4">
                 <video
                     ref={videoRef}
-                    className="w-full h-auto rounded-lg shadow-lg"
+                    className="w-auto h-100vh rounded-lg shadow-lg"
                     onEnded={handleVideoEnd}
                     controls
                 >
-                    <source src="/assets/Deforestation.mov" type="video/mp4"/>
+                    <source src="/assets/Deforestation.mp4" type="video/mp4"/>
                     Your browser does not support the video tag.
                 </video>
             </div>
