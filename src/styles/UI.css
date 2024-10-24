@@ -1,0 +1,346 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    overflow: hidden;
+    background-color: #000;
+    color: #fff;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.5;
+}
+
+/* Main container */
+.app-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+}
+
+/* Earth wrapper and positioning */
+.earth-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+/* Earth globe container */
+.earth-globe-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    max-height: 800px;
+    transform-style: preserve-3d;
+}
+
+.earth-globe-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    filter: drop-shadow(0 0 30px rgba(0, 150, 255, 0.3));
+}
+
+/* Loading overlay with enhanced animation */
+.earth-globe-loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+}
+
+.loader-spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    border-top-color: #4a9eff;
+    border-left-color: #4a9eff;
+    animation: spinner-spin 1.2s cubic-bezier(0.76, 0.35, 0.2, 0.7) infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spinner-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Enhanced animated text styles */
+.animated-text-container {
+    position: absolute;
+    top: 2rem;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+    padding: 1rem;
+}
+
+.animated-text {
+    font-size: clamp(1.75rem, 5vw, 3.5rem);
+    font-weight: 800;
+    color: #fff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.5),
+    0 0 30px rgba(74, 158, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 0.5px;
+    opacity: 0;
+    animation: textFadeIn 1s ease-out forwards 0.5s;
+}
+
+.animated-text:hover {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+    0 0 40px rgba(74, 158, 255, 0.6);
+    transform: scale(1.05);
+}
+
+/* Enhanced blob effect */
+.text-blob {
+    position: fixed;
+    background: radial-gradient(
+            circle at center,
+            rgba(74, 158, 255, 0.15) 0%,
+            rgba(74, 158, 255, 0) 70%
+    );
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: screen;
+}
+
+/* Enhanced information panel */
+.earth-info-panel {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: rgba(10, 20, 30, 0.8);
+    backdrop-filter: blur(15px);
+    padding: 1.5rem 2.5rem;
+    border-radius: 1.5rem;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    max-width: 90%;
+    width: auto;
+}
+
+.earth-globe-container:hover .earth-info-panel {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.earth-info-panel h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+    color: #4a9eff;
+    font-weight: 700;
+}
+
+.earth-info-panel p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+}
+
+/* Enhanced stars background */
+#stars-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0;
+    animation: fadeIn 2s ease-out forwards;
+}
+
+/* Enhanced animations */
+@keyframes textFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.earth-wrapper {
+    animation: fadeIn 1.5s ease-out;
+}
+
+/* Enhanced responsive adjustments */
+@media (max-width: 768px) {
+    .earth-globe-container {
+        max-height: 600px;
+    }
+
+    .earth-info-panel {
+        bottom: 1.5rem;
+        padding: 1rem 2rem;
+    }
+
+    .earth-info-panel h3 {
+        font-size: 1.1rem;
+    }
+
+    .earth-info-panel p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .earth-globe-container {
+        max-height: 450px;
+    }
+
+    .animated-text {
+        font-size: clamp(1.25rem, 6vw, 2rem);
+    }
+
+    .earth-info-panel {
+        padding: 0.75rem 1.5rem;
+        border-radius: 1rem;
+    }
+}
+
+/* Enhanced performance optimizations */
+.earth-globe-canvas {
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+.text-blob {
+    will-change: transform;
+    pointer-events: none;
+    backface-visibility: hidden;
+}
+
+/* Enhanced accessibility */
+.animated-text {
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.earth-info-panel {
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+    .earth-info-panel {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+        background: rgba(10, 20, 30, 0.9);
+    }
+
+    .animated-text:active {
+        transform: scale(0.98);
+    }
+}
+
+/* Print styles */
+@media print {
+    .earth-globe-container,
+    .text-blob,
+    #stars-container {
+        display: none;
+    }
+
+    .animated-text {
+        text-shadow: none;
+        color: #000;
+    }
+
+    .earth-info-panel {
+        border: 1px solid #000;
+        background: none;
+        color: #000;
+    }
+}
+.cta-content {
+    position: absolute;
+    bottom: 3rem; /* Adjusts how far from the bottom you want the button */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3; /* Ensure it's on top of other elements */
+}
+
+.animated-button-link {
+    text-decoration: none;
+}
+
+.animated-button {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    color: #ffffff;
+    background: linear-gradient(45deg, #6a5acd, #00c6ff);
+    border: none;
+    border-radius: 30px;
+    padding: 0.8rem 2rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.4s ease;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.animated-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 300%;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.5), transparent);
+    transition: transform 0.4s ease-in-out;
+}
+
+.animated-button:hover::before {
+    transform: translateX(100%);
+}
+
+.animated-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(45deg, #00c6ff, #6a5acd);
+}
+
+.animated-button:active {
+    transform: scale(0.98);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
