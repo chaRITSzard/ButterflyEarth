@@ -303,9 +303,10 @@ const EarthGlobe = memo(({ onLoadComplete }) => {
                     <span>Loading Earth...</span>
                 </div>
             )}
-            <div className="cta-content">
-                <h2 className="cta-title">Start Learning</h2>
-                <AnimatedButton text="Start Learning"/>
+            <div className="earth-globe-container">
+                <div className="cta-content">
+                    <AnimatedButton text="Start Learning"/>
+                </div>
             </div>
         </div>
     );

@@ -63,9 +63,6 @@
     animation: fadeInUp 0.5s ease-out forwards;
 }
 
-.game-button:nth-child(n) {
-    animation-delay: calc(0.1s * var(--i));
-}
 
 .game-button:hover {
     transform: scale(var(--button-hover-scale)) translateZ(20px);

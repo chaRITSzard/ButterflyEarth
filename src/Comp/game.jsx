@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/game.css';
 
@@ -12,15 +12,13 @@ const topics = [
     { name: "Social Displacement", image: "/Buttons/SD.jpeg" }
 ];
 
-const GameButton = ({ topic, onClick }) => {
-    const [isHovered, setIsHovered] = useState(false);
-
+const GameButton = ({ topic, onClick, isLast }) => {
     return (
         <button
             style={{
-                width: '100%',
+                width: isLast ? '33%' : '33%',
                 height: '120px',
-                margin: '10px 0',
+                margin: '10px',
                 padding: 0,
                 border: 'none',
                 borderRadius: '15px',
@@ -28,11 +26,18 @@ const GameButton = ({ topic, onClick }) => {
                 position: 'relative',
                 cursor: 'pointer',
                 transition: 'transform 0.3s ease-in-out',
-                transform: isHovered ? 'scale(1.05)' : 'scale(1)',
+                transform: 'scale(1)',
+                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)',
             }}
             onClick={() => onClick(topic.name)}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
+            onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'scale(1.05)';
+                e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.3)';
+            }}
+            onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'scale(1)';
+                e.currentTarget.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.2)';
+            }}
         >
             <div style={{
                 position: 'absolute',
@@ -44,15 +49,7 @@ const GameButton = ({ topic, onClick }) => {
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 filter: 'brightness(0.7)',
-            }} />
-            <div style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                backgroundColor: topic.color,
-                opacity: 0.7,
+                transition: 'transform 0.3s ease-in-out',
             }} />
             <h2 style={{
                 position: 'relative',
@@ -70,101 +67,105 @@ const GameButton = ({ topic, onClick }) => {
     );
 };
 
-const SignInButton = () => {
-    const [isHovered, setIsHovered] = useState(false);
-
-    return (
-        <button
-            style={{
-                position: 'absolute',
-                top: '20px',
-                right: '20px',
-                padding: '10px 20px',
-                fontSize: '16px',
-                fontWeight: 'bold',
-                color: 'white',
-                border: 'none',
-                borderRadius: '5px',
-                cursor: 'pointer',
-                overflow: 'hidden',
-            }}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-            onClick={() => console.log('Sign In/Register clicked')}
-        >
-            <div
-                style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    backgroundColor: '#4CAF50',
-                    transition: 'opacity 0.3s ease-in-out',
-                    opacity: isHovered ? 0 : 1,
-                }}
-            />
-            <div
-                style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    backgroundColor: '#45a049',
-                    transition: 'opacity 0.3s ease-in-out',
-                    opacity: isHovered ? 1 : 0,
-                }}
-            />
-            <span style={{ position: 'relative', zIndex: 2 }}>
-        Sign In / Register
-      </span>
-        </button>
-    );
-};
-
 const GamePage = () => {
     const navigate = useNavigate();
 
     const handleTopicClick = (topicName) => {
         console.log(`Selected topic: ${topicName}`);
         if (topicName === "The Deforestation Dilemma") {
-            navigate('/l1');
+            navigate('/quiz');
         }
+        if (topicName === "The Climate Crisis Conundrum") {
+            navigate('/quiz2');
+        }
+        if (topicName === "Extreme Weather Challenges") {
+            navigate('/quiz3');
+        }
+        if (topicName === "The Biodiversity Balance") {
+            navigate('/quiz4');
+        }
+        if (topicName === "The Air Quality Quest") {
+            navigate('/quiz5');
+        }
+        if (topicName === "The Economic Echo") {
+            navigate('/quiz6');
+        }
+        if (topicName === "Social Displacement") {
+            navigate('/quiz7');
+        }
+
+
     };
+
+    const mainTopics = topics.slice(0, 6);
+    const lastTopic = topics[6];
 
     return (
         <div style={{
-            padding: '20px',
-            background:'#BFD7B5',
-            minHeight: '100vh',
             position: 'relative',
+            height: '100vh',
+            overflow: 'hidden',
         }}>
-            <SignInButton />
+            {/* Video Background */}
+            <video
+                autoPlay
+                loop
+                muted
+                style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    zIndex: -1,
+                }}
+            >
+                <source src="/assets/Level.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+
+            {/* Page Content */}
             <h1 style={{
                 textAlign: 'center',
-                color: '#413C58',
+                color: '#fff',
                 marginTop: '60px',
                 marginBottom: '30px',
+                textShadow: '2px 2px 4px rgba(0,0,0,0.7)',
             }}>
-                Welcome to <b>Butterfly Earth </b>
+                Welcome to <b>Butterfly Earth</b>
             </h1>
             <h2 style={{
                 textAlign: 'center',
-                color: '#413C58',
-                marginTop: '60px',
-                marginBottom: '30px',}}>
+                color: '#fff',
+                marginBottom: '30px',
+                textShadow: '2px 2px 4px rgba(0,0,0,0.7)',
+            }}>
                 Are you ready to learn how to save the Planet?
             </h2>
+
             <div style={{
                 display: 'flex',
-                flexDirection: 'column',
-                maxWidth: '600px',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+                maxWidth: '1200px',
                 margin: '0 auto',
+                padding: '0 20px',
             }}>
-                {topics.map((topic, index) => (
+                {mainTopics.map((topic, index) => (
                     <GameButton key={index} topic={topic} onClick={handleTopicClick} />
                 ))}
+            </div>
+
+            {/* Last button container */}
+            <div style={{
+                display: 'flex',
+                justifyContent: 'center',
+                maxWidth: '1200px',
+                margin: '0 auto',
+                padding: '20px',
+            }}>
+                <GameButton topic={lastTopic} onClick={handleTopicClick} isLast={true} />
             </div>
         </div>
     );

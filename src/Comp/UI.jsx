@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Stars from "./Stars";
 import AnimatedText from "./animatedtext";
 import EarthGlobe from "./earth";
+
 const UI = () => {
     return (
         <div className="app-wrapper">
@@ -13,8 +14,12 @@ const UI = () => {
                 <div className="earth-section">
                     <EarthGlobe/>
                 </div>
+                <div className="button-section">
+                    {/* The button is already part of the EarthGlobe component */}
+                </div>
             </div>
         </div>
     );
 }
+
 export default UI;

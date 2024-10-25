@@ -60,7 +60,7 @@
 .animated-text-container {
     width: 100%;
     text-align: center;
-    position: relative;
+    position: fixed;
     z-index: 10;
 }
 
@@ -227,4 +227,46 @@
 .animated-button:active {
     transform: scale(0.98);
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+/* Add these styles at the end of the file */
+
+.app-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.text-section {
+    padding-top: 2rem;
+}
+
+.earth-section {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.earth-globe-container {
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cta-content {
+    position: absolute;
+    bottom: 2rem;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

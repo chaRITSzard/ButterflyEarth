@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import '../styles/Quiz.css';
 
 const Quiz = ({ topic }) => {
     const [questions, setQuestions] = useState([]);
     const [currentQuestion, setCurrentQuestion] = useState(0);
-    const [score, setScore] = useState(0);
     const [selectedAnswer, setSelectedAnswer] = useState(null);
+    const [score, setScore] = useState(0);
     const [quizComplete, setQuizComplete] = useState(false);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
 
     useEffect(() => {
         fetchQuestions();
@@ -15,35 +15,25 @@ const Quiz = ({ topic }) => {
 
     const fetchQuestions = async () => {
         try {
-            setLoading(true);
-            const response = await fetch(`/${topic.toLowerCase()}`);
+            const response = await fetch(`https://butterflyearth-ayfmhgeua2bpf6hc.canadacentral-01.azurewebsites.net//${topic.toLowerCase()}`);
             const data = await response.json();
-
-            if (data.error) {
-                throw new Error(data.error);
+            if (!data.error) {
+                setQuestions(data.questions);
             }
-
-            setQuestions(data.questions);
-            setError(null);
+            setLoading(false);
         } catch (err) {
-            setError('Failed to load quiz questions. Please try again.');
-        } finally {
+            console.error('Failed to load questions:', err);
             setLoading(false);
         }
     };
 
-    const handleAnswerSelect = (answerIndex) => {
-        if (selectedAnswer !== null || quizComplete) return;
-        setSelectedAnswer(answerIndex);
-
-        if (answerIndex === questions[currentQuestion].correct_answer) {
-            setScore(score + 1);
+    const handleAnswerSubmit = () => {
+        if (selectedAnswer === questions[currentQuestion].correct_answer) {
+            setScore(prevScore => prevScore + 1);
         }
-    };
 
-    const handleNext = () => {
         if (currentQuestion < questions.length - 1) {
-            setCurrentQuestion(currentQuestion + 1);
+            setCurrentQuestion(prev => prev + 1);
             setSelectedAnswer(null);
         } else {
             setQuizComplete(true);
@@ -52,100 +42,71 @@ const Quiz = ({ topic }) => {
 
     const restartQuiz = () => {
         setCurrentQuestion(0);
-        setScore(0);
         setSelectedAnswer(null);
+        setScore(0);
         setQuizComplete(false);
-        fetchQuestions();
     };
 
-    if (loading) {
-        return (
-            <div className="flex justify-center items-center min-h-[400px]">
-                <p className="text-lg">Loading quiz...</p>
-            </div>
-        );
-    }
-
-    if (error) {
-        return (
-            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-                <span className="block sm:inline">{error}</span>
-            </div>
-        );
-    }
-
-    if (quizComplete) {
-        return (
-            <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-6">
-                <div className="text-center">
-                    <h2 className="text-2xl font-bold mb-4">Quiz Complete!</h2>
-                    <p className="text-xl mb-4">
-                        Your score: {score} out of {questions.length}
-                    </p>
-                    <p className="text-lg mb-6">
-                        Percentage: {((score / questions.length) * 100).toFixed(1)}%
-                    </p>
-                    <button
-                        onClick={restartQuiz}
-                        className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg transition-colors"
-                    >
-                        Try Again
-                    </button>
-                </div>
-            </div>
-        );
-    }
-
-    const currentQ = questions[currentQuestion];
+    if (loading) return <div className="loading">Loading quiz...</div>;
+    if (!questions.length) return null;
 
     return (
-        <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-6">
-            {/* Header */}
-            <div className="mb-6">
-                <div className="flex justify-between items-center mb-4">
-                    <h2 className="text-xl font-bold">Question {currentQuestion + 1}/{questions.length}</h2>
-                    <span className="text-lg font-semibold bg-blue-100 px-3 py-1 rounded-full">
-            Score: {score}
-          </span>
+        <div className="quiz-wrapper">
+            {/* Video Background */}
+            <video autoPlay loop muted className="background-video">
+                <source src="/assets/Deforestation.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+
+            <div className="quiz-container">
+                <div className="quiz-card">
+                    {!quizComplete ? (
+                        <>
+                            <div className="quiz-header">
+                                Question {currentQuestion + 1}/{questions.length}
+                            </div>
+                            <div className="quiz-question">
+                                {questions[currentQuestion].question}
+                            </div>
+                            <div className="quiz-options">
+                                {questions[currentQuestion].options.map((option, index) => (
+                                    <button
+                                        key={index}
+                                        onClick={() => setSelectedAnswer(index)}
+                                        className={`quiz-option ${selectedAnswer === index ? 'selected' : ''}`}
+                                    >
+                                        {option}
+                                    </button>
+                                ))}
+                            </div>
+                            {selectedAnswer !== null && (
+                                <button
+                                    onClick={handleAnswerSubmit}
+                                    className="submit-button"
+                                >
+                                    {currentQuestion === questions.length - 1 ? 'Finish Quiz' : 'Next Question'}
+                                </button>
+                            )}
+                        </>
+                    ) : (
+                        <div className="quiz-results">
+                            <h2>Quiz Complete!</h2>
+                            <p>Your Score: {score} out of {questions.length}</p>
+                            <p className="score-message">
+                                {score === questions.length ? "Perfect score! Excellent work! 🏆" :
+                                    score >= questions.length * 0.7 ? "Great job! 🌟" :
+                                        score >= questions.length * 0.5 ? "Good effort! Keep practicing! 👍" :
+                                            "Keep learning! You'll do better next time! 💪"}
+                            </p>
+                            <button
+                                onClick={restartQuiz}
+                                className="restart-button"
+                            >
+                                Try Again
+                            </button>
+                        </div>
+                    )}
                 </div>
-                <p className="text-lg">{currentQ.question}</p>
-            </div>
-
-            {/* Options */}
-            <div className="space-y-3 mb-6">
-                {currentQ.options.map((option, index) => (
-                    <button
-                        key={index}
-                        onClick={() => handleAnswerSelect(index)}
-                        disabled={selectedAnswer !== null}
-                        className={`w-full p-3 rounded-lg text-left transition-colors ${
-                            selectedAnswer === null
-                                ? 'hover:bg-gray-100 bg-gray-50'
-                                : selectedAnswer === index
-                                    ? index === currentQ.correct_answer
-                                        ? 'bg-green-100'
-                                        : 'bg-red-100'
-                                    : index === currentQ.correct_answer
-                                        ? 'bg-green-100'
-                                        : 'bg-gray-50'
-                        } ${
-                            selectedAnswer !== null ? 'cursor-default' : 'cursor-pointer'
-                        } disabled:opacity-70`}
-                    >
-                        {option}
-                    </button>
-                ))}
-            </div>
-
-            {/* Navigation */}
-            <div className="flex justify-end">
-                <button
-                    onClick={handleNext}
-                    disabled={selectedAnswer === null}
-                    className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                    {currentQuestion === questions.length - 1 ? 'Finish' : 'Next'}
-                </button>
             </div>
         </div>
     );
