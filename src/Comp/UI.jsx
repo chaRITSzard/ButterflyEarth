@@ -15,7 +15,6 @@ const UI = () => {
                     <EarthGlobe/>
                 </div>
                 <div className="button-section">
-                    {/* The button is already part of the EarthGlobe component */}
                 </div>
             </div>
         </div>

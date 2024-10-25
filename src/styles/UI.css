@@ -75,3 +75,30 @@
     text-align: center;
 }
 
+.button-container {
+    position: absolute;
+    bottom: 20px; /* Adjust the distance from the bottom */
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Distributes buttons evenly */
+    align-items: center;
+    padding: 0 2rem;
+    z-index: 5;
+}
+
+/* Button alignment classes */
+.button-left {
+    flex: 0 0 0;
+    left: 100% ;/* Prevent stretching */
+}
+
+.button-center {
+    flex: 0 0 0; /* Prevent stretching */
+    margin: 0 0;
+    /* Center alignment */
+}
+
+.button-right {
+    flex: 0 0 0;
+    right: 100%;/* Prevent stretching */
+}

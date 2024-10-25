@@ -9,7 +9,8 @@ import Quiz4 from './Comp/quiz4';
 import Quiz5 from './Comp/quiz5';
 import Quiz6 from './Comp/quiz6';
 import Quiz7 from './Comp/quiz7';
-
+import Carbon from './Comp/carbon';
+import Chatbot from './Comp/chatbot';
 
 const App = () => {
     return (
@@ -24,6 +25,8 @@ const App = () => {
                 <Route path="/quiz5" element={<Quiz5 topic="air" />}/>
                 <Route path="/quiz6" element={<Quiz6 topic="EcoEffect" />}/>
                 <Route path="/quiz7" element={<Quiz7 topic="Social" />}/>
+                <Route path="/Carbon" element={<Carbon />}/>
+                <Route path="/chatbot" element={<Chatbot apiEndpoint="http://127.0.0.1:5000/chatbot"/>}/>
             </Routes>
         </Router>
     );

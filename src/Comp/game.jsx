@@ -93,8 +93,10 @@ const GamePage = () => {
         if (topicName === "Social Displacement") {
             navigate('/quiz7');
         }
+    };
 
-
+    const handleChatbotClick = () => {
+        navigate('/chatbot'); // Navigate to your chatbot route
     };
 
     const mainTopics = topics.slice(0, 6);
@@ -166,6 +168,48 @@ const GamePage = () => {
                 padding: '20px',
             }}>
                 <GameButton topic={lastTopic} onClick={handleTopicClick} isLast={true} />
+            </div>
+
+            {/* Chatbot Icon */}
+            <div
+                onClick={handleChatbotClick}
+                style={{
+                    position: 'fixed',
+                    bottom: '20px',
+                    right: '20px',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    transition: 'transform 0.3s ease',
+                    zIndex: 1000,
+                }}
+                onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.1)';
+                }}
+                onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'scale(1)';
+                }}
+            >
+                <img
+                    src="/assets/chat.png"
+                    alt="Ask Me Anything"
+                    style={{
+                        width: '100px',
+                        height: '100px',
+                        borderRadius: '50%',
+                        marginBottom: '5px',
+                        boxShadow: '0 2px 10px rgba(0,0,0,0.2)',
+                    }}
+                />
+                <span style={{
+                    color: 'white',
+                    fontSize: '20px',
+                    fontWeight: 'bold',
+                    textShadow: '1px 1px 2px rgba(0,0,0,0.5)',
+                }}>
+                    Ask Me Anything
+                </span>
             </div>
         </div>
     );

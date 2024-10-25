@@ -52,7 +52,6 @@ const Quiz = ({ topic }) => {
 
     return (
         <div className="quiz-wrapper">
-            {/* Video Background */}
             <video autoPlay loop muted className="background-video">
                 <source src="/assets/Deforestation.mp4" type="video/mp4" />
                 Your browser does not support the video tag.

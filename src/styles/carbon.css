@@ -1,0 +1,159 @@
+.carbon-viz-container {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.carbon-viz-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #eee;
+}
+
+.carbon-viz-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.input-container {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    align-items: flex-end;
+}
+
+.input-group {
+    flex: 1;
+}
+
+.input-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #4a4a4a;
+}
+
+.input-field {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.2s;
+    text-transform: uppercase;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #2196f3;
+    box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.1);
+}
+
+.submit-button {
+    padding: 8px 16px;
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    height: 38px;
+}
+
+.submit-button:hover {
+    background-color: #1976d2;
+}
+
+.submit-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.viz-canvas-container {
+    width: 100%;
+    height: 400px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+.flight-details {
+    margin-top: 20px;
+    padding: 16px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.flight-details-title {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 0 12px 0;
+    color: #1a1a1a;
+}
+
+.flight-details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    font-size: 14px;
+    color: #4a4a4a;
+}
+
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #666;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 8px;
+    padding: 8px;
+    background-color: #fff3f3;
+    border-radius: 4px;
+}
+.calculate-button {
+    padding: 8px 16px;
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    height: fit-content;
+    align-self: flex-end;
+    margin-bottom: 2px;
+}
+
+.calculate-button:hover {
+    background-color: #1976d2;
+}
+
+.calculate-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}

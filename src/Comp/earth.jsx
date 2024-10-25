@@ -4,15 +4,16 @@ import { Link } from 'react-router-dom';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import '../styles/earth.css';
 
-const AnimatedButton = ({ text }) => {
+const AnimatedButton = ({ text, link }) => {
     return (
-        <Link to="/game" className="animated-button-link">
+        <a href={link} className="animated-button-link" target="_blank" rel="noopener noreferrer">
             <button className="animated-button">
                 {text}
             </button>
-        </Link>
+        </a>
     );
 };
+
 
 const textureLoader = new THREE.TextureLoader();
 const texture = textureLoader.load('path/to/texture.jpg');
@@ -303,13 +304,19 @@ const EarthGlobe = memo(({ onLoadComplete }) => {
                     <span>Loading Earth...</span>
                 </div>
             )}
-            <div className="earth-globe-container">
-                <div className="cta-content">
-                    <AnimatedButton text="Start Learning"/>
+
+            <div className="button-container">
+                <div className="button-left">
+                    <AnimatedButton text="Start the Quiz" link="/game"/>
                 </div>
-            </div>
+                <div className="button-right">
+                    <AnimatedButton text="Learn in 3D" link="https://discovir.github.io/butterfly3d/"/>
+                </div>
         </div>
-    );
+</div>
+
+)
+    ;
 });
 
 EarthGlobe.displayName = 'EarthGlobe';
