@@ -175,4 +175,101 @@
         font-size: 14px;
         padding: 10px 14px;
     }
+<<<<<<< HEAD
 }
+=======
+}
+.badge-animation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.earned-badge {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid gold;
+}
+
+@keyframes badgeAppear {
+    0% {
+        transform: scale(0) rotate(-180deg);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.2) rotate(10deg);
+    }
+    100% {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+    }
+}
+
+.badge-text {
+    color: gold;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* General button styles */
+button {
+    cursor: pointer;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+/* Try Again button */
+.restart-button {
+    background-color: #4caf50; /* Green */
+    color: #fff;
+}
+
+.restart-button:hover {
+    background-color: #45a049;
+}
+
+/* Learn More button */
+.learn-more-button {
+    background-color: #2196f3; /* Blue */
+    color: #fff;
+    margin-top: 8px;
+}
+
+.learn-more-button:hover {
+    background-color: #1e88e5;
+}
+
+/* Next button */
+.next-button {
+    background-color: #ff9800; /* Orange */
+    color: #fff;
+    margin-top: 8px;
+}
+
+.next-button:hover {
+    background-color: #fb8c00;
+}
+
+/* Optional - adding spacing between buttons */
+button + button {
+    margin-left: 8px;
+}
+>>>>>>> 937ea31 (Frontend revamped)

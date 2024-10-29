@@ -8,6 +8,12 @@ const Quiz3 = ({ topic }) => {
     const [score, setScore] = useState(0);
     const [quizComplete, setQuizComplete] = useState(false);
     const [loading, setLoading] = useState(true);
+<<<<<<< HEAD
+=======
+    const [showBadge, setShowBadge] = useState(false);
+    const [badgeEarned, setBadgeEarned] = useState(false);
+    const [badgeType, setBadgeType] = useState(null);
+>>>>>>> 937ea31 (Frontend revamped)
 
     useEffect(() => {
         fetchQuestions();
@@ -15,7 +21,11 @@ const Quiz3 = ({ topic }) => {
 
     const fetchQuestions = async () => {
         try {
+<<<<<<< HEAD
             const response = await fetch(`https://butterflyearth-ayfmhgeua2bpf6hc.canadacentral-01.azurewebsites.net//${topic.toLowerCase()}`);
+=======
+            const response = await fetch(`http://127.0.0.1:5000/${topic.toLowerCase()}`);
+>>>>>>> 937ea31 (Frontend revamped)
             const data = await response.json();
             if (!data.error) {
                 setQuestions(data.questions);
@@ -27,6 +37,16 @@ const Quiz3 = ({ topic }) => {
         }
     };
 
+<<<<<<< HEAD
+=======
+    const getBadgeInfo = (finalScore) => {
+        if (finalScore >= 4) return { type: 'gold', image: '/assets/Gold.jpg', message: 'Gold Badge' };
+        if (finalScore >= 3) return { type: 'silver', image: '/assets/Silver.jpg', message: 'Silver Badge' };
+        if (finalScore >= 2) return { type: 'bronze', image: '/assets/Bronze.jpg', message: 'Bronze Badge' };
+        return null;
+    };
+
+>>>>>>> 937ea31 (Frontend revamped)
     const handleAnswerSubmit = () => {
         if (selectedAnswer === questions[currentQuestion].correct_answer) {
             setScore(prevScore => prevScore + 1);
@@ -37,6 +57,27 @@ const Quiz3 = ({ topic }) => {
             setSelectedAnswer(null);
         } else {
             setQuizComplete(true);
+<<<<<<< HEAD
+=======
+            // Calculate final score including the last answer
+            const finalScore = selectedAnswer === questions[currentQuestion].correct_answer ? score + 1 : score;
+            const badgeInfo = getBadgeInfo(finalScore);
+
+            if (badgeInfo) {
+                setBadgeEarned(true);
+                setShowBadge(true);
+                setBadgeType(badgeInfo.type);
+                // Store badge in localStorage if it's better than previous
+                const badges = JSON.parse(localStorage.getItem('quizBadges') || '{}');
+                const existingBadge = badges[topic] || '';
+                // Only update if new badge is better than existing
+                const badgeRank = { gold: 3, silver: 2, bronze: 1 };
+                if (!existingBadge || badgeRank[badgeInfo.type] > badgeRank[existingBadge]) {
+                    badges[topic] = badgeInfo.type;
+                    localStorage.setItem('quizBadges', JSON.stringify(badges));
+                }
+            }
+>>>>>>> 937ea31 (Frontend revamped)
         }
     };
 
@@ -45,6 +86,24 @@ const Quiz3 = ({ topic }) => {
         setSelectedAnswer(null);
         setScore(0);
         setQuizComplete(false);
+<<<<<<< HEAD
+=======
+        setShowBadge(false);
+        setBadgeType(null);
+    };
+
+    const getBadgeText = (type) => {
+        switch (type) {
+            case 'gold':
+                return 'Exceptional! You have earned a Gold Badge! 🏆';
+            case 'silver':
+                return 'Great work! You have earned a Silver Badge! 🥈';
+            case 'bronze':
+                return 'Good job! You have earned a Bronze Badge! 🥉';
+            default:
+                return '';
+        }
+>>>>>>> 937ea31 (Frontend revamped)
     };
 
     if (loading) return <div className="loading">Loading quiz...</div>;
@@ -52,8 +111,12 @@ const Quiz3 = ({ topic }) => {
 
     return (
         <div className="quiz-wrapper">
+<<<<<<< HEAD
             {/* Video Background */}
             <video autoPlay loop muted className="background-video" preload="auto">
+=======
+            <video autoPlay loop muted className="background-video">
+>>>>>>> 937ea31 (Frontend revamped)
                 <source src="/assets/3.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
@@ -92,6 +155,22 @@ const Quiz3 = ({ topic }) => {
                         <div className="quiz-results">
                             <h2>Quiz Complete!</h2>
                             <p>Your Score: {score} out of {questions.length}</p>
+<<<<<<< HEAD
+=======
+                            {badgeEarned && showBadge && (
+                                <div className="badge-animation">
+                                    <img
+                                        src={`/assets/${badgeType.charAt(0).toUpperCase() + badgeType.slice(1)}.jpg`}
+                                        alt={`${badgeType} Badge`}
+                                        className="earned-badge"
+                                        style={{
+                                            animation: 'badgeAppear 1s ease-out'
+                                        }}
+                                    />
+                                    <p className="badge-text">{getBadgeText(badgeType)}</p>
+                                </div>
+                            )}
+>>>>>>> 937ea31 (Frontend revamped)
                             <p className="score-message">
                                 {score === questions.length ? "Perfect score! Excellent work! 🏆" :
                                     score >= questions.length * 0.7 ? "Great job! 🌟" :

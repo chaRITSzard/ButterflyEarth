@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React from 'react';
+=======
+import React, { useState, useEffect } from 'react';
+>>>>>>> 937ea31 (Frontend revamped)
 import { useNavigate } from 'react-router-dom';
 import '../styles/game.css';
 
@@ -12,7 +16,11 @@ const topics = [
     { name: "Social Displacement", image: "/Buttons/SD.jpeg" }
 ];
 
+<<<<<<< HEAD
 const GameButton = ({ topic, onClick, isLast }) => {
+=======
+const GameButton = ({ topic, onClick, isLast, hasBadge }) => {
+>>>>>>> 937ea31 (Frontend revamped)
     return (
         <button
             style={{
@@ -63,12 +71,37 @@ const GameButton = ({ topic, onClick, isLast }) => {
             }}>
                 {topic.name}
             </h2>
+<<<<<<< HEAD
+=======
+            {hasBadge && (
+                <div style={{
+                    position: 'absolute',
+                    top: '10px',
+                    right: '10px',
+                    width: '30px',
+                    height: '30px',
+                    zIndex: 3,
+                }}>
+                    <img
+                        src={`/Badges/${topic.name.replace(/\s+/g, '')}.jpg`}
+                        alt="Badge"
+                        style={{
+                            width: '100%',
+                            height: '100%',
+                            borderRadius: '50%',
+                            border: '2px solid gold',
+                        }}
+                    />
+                </div>
+            )}
+>>>>>>> 937ea31 (Frontend revamped)
         </button>
     );
 };
 
 const GamePage = () => {
     const navigate = useNavigate();
+<<<<<<< HEAD
 
     const handleTopicClick = (topicName) => {
         console.log(`Selected topic: ${topicName}`);
@@ -97,6 +130,36 @@ const GamePage = () => {
 
     const handleChatbotClick = () => {
         navigate('/chatbot'); // Navigate to your chatbot route
+=======
+    const [earnedBadges, setEarnedBadges] = useState({});
+    const [showBadgeInventory, setShowBadgeInventory] = useState(false);
+
+    useEffect(() => {
+        const badges = JSON.parse(localStorage.getItem('quizBadges') || '{}');
+        setEarnedBadges(badges);
+    }, []);
+
+    const handleTopicClick = (topicName) => {
+        console.log(`Selected topic: ${topicName}`);
+        const routes = {
+            "The Deforestation Dilemma": '/quiz',
+            "The Climate Crisis Conundrum": '/quiz2',
+            "Extreme Weather Challenges": '/quiz3',
+            "The Biodiversity Balance": '/quiz4',
+            "The Air Quality Quest": '/quiz5',
+            "The Economic Echo": '/quiz6',
+            "Social Displacement": '/quiz7'
+        };
+        navigate(routes[topicName]);
+    };
+
+    const handleChatbotClick = () => {
+        navigate('/chatbot');
+    };
+
+    const toggleBadgeInventory = () => {
+        setShowBadgeInventory(!showBadgeInventory);
+>>>>>>> 937ea31 (Frontend revamped)
     };
 
     const mainTopics = topics.slice(0, 6);
@@ -108,7 +171,10 @@ const GamePage = () => {
             height: '100vh',
             overflow: 'hidden',
         }}>
+<<<<<<< HEAD
             {/* Video Background */}
+=======
+>>>>>>> 937ea31 (Frontend revamped)
             <video
                 autoPlay
                 loop
@@ -127,7 +193,10 @@ const GamePage = () => {
                 Your browser does not support the video tag.
             </video>
 
+<<<<<<< HEAD
             {/* Page Content */}
+=======
+>>>>>>> 937ea31 (Frontend revamped)
             <h1 style={{
                 textAlign: 'center',
                 color: '#fff',
@@ -155,11 +224,23 @@ const GamePage = () => {
                 padding: '0 20px',
             }}>
                 {mainTopics.map((topic, index) => (
+<<<<<<< HEAD
                     <GameButton key={index} topic={topic} onClick={handleTopicClick} />
                 ))}
             </div>
 
             {/* Last button container */}
+=======
+                    <GameButton
+                        key={index}
+                        topic={topic}
+                        onClick={handleTopicClick}
+                        hasBadge={earnedBadges[topic.name]}
+                    />
+                ))}
+            </div>
+
+>>>>>>> 937ea31 (Frontend revamped)
             <div style={{
                 display: 'flex',
                 justifyContent: 'center',
@@ -167,10 +248,23 @@ const GamePage = () => {
                 margin: '0 auto',
                 padding: '20px',
             }}>
+<<<<<<< HEAD
                 <GameButton topic={lastTopic} onClick={handleTopicClick} isLast={true} />
             </div>
 
             {/* Chatbot Icon */}
+=======
+                <GameButton
+                    topic={lastTopic}
+                    onClick={handleTopicClick}
+                    isLast={true}
+                    hasBadge={earnedBadges[lastTopic.name]}
+                />
+            </div>
+
+
+            {/* Chatbot Button (Right Side) */}
+>>>>>>> 937ea31 (Frontend revamped)
             <div
                 onClick={handleChatbotClick}
                 style={{
@@ -211,6 +305,84 @@ const GamePage = () => {
                     Ask Me Anything
                 </span>
             </div>
+<<<<<<< HEAD
+=======
+
+            {/* Badge Inventory Modal */}
+            {showBadgeInventory && (
+                <div style={{
+                    position: 'fixed',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    backgroundColor: 'rgba(0, 0, 0, 0.9)',
+                    padding: '20px',
+                    borderRadius: '15px',
+                    zIndex: 1001,
+                    maxWidth: '80%',
+                    maxHeight: '80vh',
+                    overflow: 'auto',
+                }}>
+                    <h2 style={{
+                        color: 'white',
+                        textAlign: 'center',
+                        marginBottom: '20px'
+                    }}>
+                        Your Earned Badges
+                    </h2>
+                    <div style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+                        gap: '20px',
+                        padding: '20px',
+                    }}>
+                        {topics.map((topic, index) => (
+                            earnedBadges[topic.name] && (
+                                <div key={index} style={{
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                }}>
+                                    <img
+                                        src={`/Badges/${topic.name.replace(/\s+/g, '')}.jpg`}
+                                        alt={`${topic.name} Badge`}
+                                        style={{
+                                            width: '100px',
+                                            height: '100px',
+                                            borderRadius: '50%',
+                                            border: '3px solid gold',
+                                            marginBottom: '10px',
+                                        }}
+                                    />
+                                    <span style={{
+                                        color: 'white',
+                                        textAlign: 'center',
+                                        fontSize: '14px',
+                                    }}>
+                                        {topic.name}
+                                    </span>
+                                </div>
+                            )
+                        ))}
+                    </div>
+                    <button
+                        onClick={toggleBadgeInventory}
+                        style={{
+                            position: 'absolute',
+                            top: '10px',
+                            right: '10px',
+                            background: 'none',
+                            border: 'none',
+                            color: 'white',
+                            fontSize: '24px',
+                            cursor: 'pointer',
+                        }}
+                    >
+                        ×
+                    </button>
+                </div>
+            )}
+>>>>>>> 937ea31 (Frontend revamped)
         </div>
     );
 };

@@ -1,6 +1,10 @@
 /* Updated earth.css */
 * {
+<<<<<<< HEAD
     margin: 0;
+=======
+    margin:0;
+>>>>>>> 937ea31 (Frontend revamped)
     padding: 0;
     box-sizing: border-box;
 }
@@ -68,7 +72,11 @@
     font-family: 'Poppins', sans-serif;
     font-size: clamp(1.5rem, 4vw, 3rem);
     font-weight: 700;
+<<<<<<< HEAD
     color: #C7D3BF;
+=======
+    color: #839D9A;
+>>>>>>> 937ea31 (Frontend revamped)
     letter-spacing: 2px;
     position: relative;
     padding: 1rem;
@@ -282,6 +290,7 @@
 }
 
 .button-container {
+<<<<<<< HEAD
     position: absolute;
     bottom: 20px; /* Adjust the distance from the bottom */
     width: 100%;
@@ -304,4 +313,32 @@
 
 .button-right {
     flex: 0 0 auto; /* Prevent stretching */
+=======
+    position: fixed;  /* Changed to fixed positioning */
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 999;  /* Ensure it's above other elements */
+}
+
+.button-left {
+    position: fixed;  /* Force position */
+    bottom: 10px;
+    left: 20px;
+}
+
+.button-right {
+    position: fixed;  /* Force position */
+    bottom: 10px;
+    right: 20px;
+}
+
+/* Make the buttons themselves a bit smaller if needed */
+.animated-button {
+    font-size: 1.2rem;  /* Slightly smaller font */
+    padding: 0.4rem 1.5rem;  /* Slightly smaller padding */
+>>>>>>> 937ea31 (Frontend revamped)
 }
