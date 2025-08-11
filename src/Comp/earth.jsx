@@ -187,7 +187,7 @@ const EarthGlobe = memo(({ onLoadComplete }) => {
                 const [earthMap, normalMap, specularMap, cloudMap] = await Promise.all([
                     textureLoader.load('/textures/earth.webp'),
                     textureLoader.load('/textures/normal.jpeg'),
-                    textureLoader.load('/textures/specular.jpeg'),
+                    textureLoader.load('/textures/Specular.jpeg'),
                     textureLoader.load('/textures/cloud.jpeg')
                 ]);
 
