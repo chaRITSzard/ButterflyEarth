@@ -1,10 +1,5 @@
-/* Updated earth.css */
 * {
-<<<<<<< HEAD
     margin: 0;
-=======
-    margin:0;
->>>>>>> 937ea31 (Frontend revamped)
     padding: 0;
     box-sizing: border-box;
 }
@@ -15,6 +10,9 @@
     background: #000000;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .main-content {
@@ -23,6 +21,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     z-index: 1;
 }
 
@@ -35,6 +34,7 @@
     justify-content: center;
     align-items: center;
     min-height: 150px;
+    padding-top: 2rem;
 }
 
 .earth-section {
@@ -44,12 +44,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-grow: 1;
+    flex-direction: column;
 }
 
 .earth-globe-container {
     width: 100%;
     height: 100%;
     position: relative;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .earth-globe-canvas {
@@ -72,18 +78,14 @@
     font-family: 'Poppins', sans-serif;
     font-size: clamp(1.5rem, 4vw, 3rem);
     font-weight: 700;
-<<<<<<< HEAD
-    color: #C7D3BF;
-=======
-    color: #839D9A;
->>>>>>> 937ea31 (Frontend revamped)
+    color: #C7D3BF; /* Chose the HEAD color */
     letter-spacing: 2px;
     position: relative;
     padding: 1rem;
     background: linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 1) 0%,
-            rgba(255, 255, 255, 0.8) 100%
+        180deg,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 0.8) 100%
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -99,9 +101,9 @@
     width: 80%;
     height: 40px;
     background: radial-gradient(
-            ellipse at center,
-            rgba(255, 255, 255, 0.4) 0%,
-            transparent 70%
+        ellipse at center,
+        rgba(255, 255, 255, 0.4) 0%,
+        transparent 70%
     );
     filter: blur(10px);
     pointer-events: none;
@@ -192,8 +194,11 @@
         font-size: 0.9rem;
     }
 }
+
 .animated-button-link {
     text-decoration: none;
+    display: flex;
+    justify-content: center;
 }
 
 .animated-button {
@@ -218,7 +223,7 @@
     left: -100%;
     width: 200%;
     height: 300%;
-    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.5), transparent);
+    background: radial-gradient(circle at 50% 50%, rgba(51, 8, 134, 0.5), transparent);
     transition: transform 0.4s ease-in-out;
 }
 
@@ -229,116 +234,32 @@
 .animated-button:hover {
     transform: translateY(-3px);
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
-    background: linear-gradient(45deg, #00c6ff, #6a5acd);
+    background: linear-gradient(45deg, #f8ed1a, #7b68ef);
 }
 
 .animated-button:active {
     transform: scale(0.98);
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
 }
-/* Add these styles at the end of the file */
 
-.app-wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-.main-content {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
-.text-section {
-    padding-top: 2rem;
-}
-
-.earth-section {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.earth-globe-container {
-    position: relative;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.cta-content {
-    position: relative;
-    bottom: 2rem;
-    left: 0;
-    right: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
-}
-
-
-
-.animated-button-link {
-    display: flex;
-    justify-content: center;
-    text-decoration: none;
-}
-
+/* Fixed-position button layout */
 .button-container {
-<<<<<<< HEAD
+    width: 100%;
+    display: flex;
+    justify-content: center; /* centers horizontally */
+    align-items: center;     /* centers vertically if container has height */
     position: absolute;
-    bottom: 20px; /* Adjust the distance from the bottom */
-    width: 100%;
-    display: flex;
-    justify-content: space-between; /* Distributes buttons evenly */
-    align-items: center;
-    padding: 0 2rem;
-    z-index: 5;
-}
-
-/* Button alignment classes */
-.button-left {
-    flex: 0 0 auto; /* Prevent stretching */
-}
-
-.button-center {
-    flex: 0 0 auto; /* Prevent stretching */
-    margin: 0 auto; /* Center alignment */
-}
-
-.button-right {
-    flex: 0 0 auto; /* Prevent stretching */
-=======
-    position: fixed;  /* Changed to fixed positioning */
-    bottom: 20px;
+    bottom: 20px; /* or wherever you want it vertically */
     left: 0;
-    right: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    z-index: 999;  /* Ensure it's above other elements */
-}
-
-.button-left {
-    position: fixed;  /* Force position */
-    bottom: 10px;
-    left: 20px;
 }
 
 .button-right {
-    position: fixed;  /* Force position */
-    bottom: 10px;
-    right: 20px;
+    margin: 0; /* remove any side margin that pushes it */
 }
 
-/* Make the buttons themselves a bit smaller if needed */
+
+/* Smaller button size for fixed layout */
 .animated-button {
-    font-size: 1.2rem;  /* Slightly smaller font */
-    padding: 0.4rem 1.5rem;  /* Slightly smaller padding */
->>>>>>> 937ea31 (Frontend revamped)
+    font-size: 1.2rem;
+    padding: 0.4rem 1.5rem;
 }

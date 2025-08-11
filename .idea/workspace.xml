@@ -4,7 +4,59 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b53a559-4154-4ff5-9f54-aa3ec62aad19" name="Changes" comment="Frontend revamped" />
+    <list default="true" id="9b53a559-4154-4ff5-9f54-aa3ec62aad19" name="Changes" comment="Frontend revamped">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Buttons/AP.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Buttons/BL.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Buttons/CC.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Buttons/DF.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Buttons/EE.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Buttons/EWE.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Buttons/SD.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Textures/earth.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/2.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/3 2.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/3.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/4.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/5 2.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/5.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/6.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/7.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/Bronze 2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/Bronze.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/Deforestation.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/Gold 2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/Gold.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/Level.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/Silver 2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/Silver.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/chat 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/chat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/chhest 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/chhest.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/footer 2.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/footer.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/web 2.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/web.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Comp/carbon.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Comp/chatbot.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Comp/earth.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Comp/earth.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Comp/game.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Comp/quiz.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Comp/quiz2.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Comp/quiz3.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Comp/quiz4.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Comp/quiz5.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Comp/quiz6.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Comp/quiz7.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/Quiz.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/UI.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/UI.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/carbon.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/chatbot.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/earth.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/earth.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/game.css" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +65,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "chaRITSzard"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/chaRITSzard/webapp",
+    "accountId": "23f857b8-bfde-4abf-86b2-50d4151c77d9"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -24,25 +88,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/webDev/webapp&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "/Users/rajesh/dev/webapp",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/Users/rajesh/dev/webapp/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-WS-242.23339.15" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PY-241.17890.14" />
+        <option value="bundled-python-sdk-5b207ade9991-7e9c3bbb6e34-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.17890.14" />
       </set>
     </attachedChunks>
   </component>
@@ -55,6 +121,7 @@
       <option name="presentableId" value="Default" />
       <updated>1729521044624</updated>
       <workItem from="1729521045614" duration="621000" />
+      <workItem from="1754905999750" duration="2526000" />
     </task>
     <task id="LOCAL-00001" summary="Frontend revamped">
       <option name="closed" value="true" />

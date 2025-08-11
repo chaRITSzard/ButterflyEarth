@@ -185,7 +185,7 @@ const EarthGlobe = memo(({ onLoadComplete }) => {
 
             try {
                 const [earthMap, normalMap, specularMap, cloudMap] = await Promise.all([
-                    textureLoader.load('/textures/earth.jpg'),
+                    textureLoader.load('/textures/earth.webp'),
                     textureLoader.load('/textures/normal.jpeg'),
                     textureLoader.load('/textures/specular.jpeg'),
                     textureLoader.load('/textures/cloud.jpeg')
@@ -306,9 +306,6 @@ const EarthGlobe = memo(({ onLoadComplete }) => {
             )}
 
             <div className="button-container">
-                <div className="button-left">
-                    <AnimatedButton text="Start the Quiz" link="/game"/>
-                </div>
                 <div className="button-right">
                     <AnimatedButton text="Learn in 3D" link="https://discovir.github.io/butterfly3d/"/>
                 </div>
