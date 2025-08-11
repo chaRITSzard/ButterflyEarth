@@ -46,7 +46,6 @@
     display: flex;
     justify-content: center;
 }
-/* ... (keep existing styles) ... */
 
 .main-content {
     display: flex;
@@ -95,7 +94,6 @@
 .button-center {
     flex: 0 0 0; /* Prevent stretching */
     margin: 0 0;
-    /* Center alignment */
 }
 
 .button-right {
