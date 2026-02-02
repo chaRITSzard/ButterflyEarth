@@ -1,14 +1,14 @@
 # 🦋 Butterfly Earth
 
 **Butterfly Earth** is a React.js web application built with Create React App.  
-It is designed to be a responsive, interactive front-end experience — currently in **beta** development and hosted at https://butterfly-earth-beta.vercel.app/ (if available).
+It is designed to be a responsive, interactive front-end experience — currently in **beta** development and hosted at https://butterfly-earth-beta.vercel.app/.
 
 
 ---
 
 ## 🔍 Demo
 
-Try the live version (if deployed):  
+Try the live version:  
 **https://butterfly-earth-beta.vercel.app/**
 
 
@@ -23,8 +23,6 @@ Try the live version (if deployed):
 
 
 ---
-
-## 🛠 Getting Started
 
 ### Prerequisites
 
